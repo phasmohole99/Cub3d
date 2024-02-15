@@ -5,7 +5,8 @@ FILE	= bin/main/main \
 		  bin/read_file/tools \
 		  bin/read_file/checks \
 		  bin/read_file/tools_2 \
-		  bin/read_file/read_map_lines
+		  bin/read_file/read_map_lines \
+		  bin/read_file/map_checker
 OBJ		= $(FILE:=.o)
 SRC		= src/libft/libft.a src/get_next_line/gnl.a
 LIBFT 	= src/libft
