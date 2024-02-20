@@ -10,6 +10,10 @@ void    convert_rgb_to_hex(t_map *m, char *str)
 
     i = 0;
     j = 0;
+    m->f_hex = malloc(sizeof(char) * 8);
+    if (!m->f_hex)
+        quit_program (0, m);
+    m->f_hex[0] = '#';
     while (j < 3)
     {
         start = i;
@@ -18,11 +22,13 @@ void    convert_rgb_to_hex(t_map *m, char *str)
         tmp = ft_substr(str, start, i - start);
         num = ft_atoi(tmp);
         free (tmp);
-        ft_strjoin(m->f_hex, ft_itoi(num));
+        tmp = ft_itoa(num);
+        printf("#%s\n", tmp);
+        m->f_hex = ft_strjoin(m->f_hex, tmp);
+        free (tmp);
         i++;
         j++;
     }
-    return (1);
 }
 
 int     check_ranges(char *str)

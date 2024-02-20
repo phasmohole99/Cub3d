@@ -60,6 +60,6 @@ void    quit_program(int errid, t_map *m)
     if (errid == INVALID_RGB)
         perror ("Error\n:Invalid RGB in elements please fix .cub file\n");
     if (errid == SUCCESS)
-        {pause();exit (EXIT_SUCCESS);}
+        exit (EXIT_SUCCESS);
     exit (EXIT_FAILURE);
 }

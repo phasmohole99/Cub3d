@@ -18,12 +18,16 @@ int check_cub_file(char *file)
 int main(int ac, char **av)
 {
     t_map   m;
+    t_data  data;
 
     if (ac == 2)
     {
         check_cub_file(av[1]);
         read_file (open(av[1], 2), &m);
         //start_game_window (&m);
+        data.mlx = mlx_init(IW, IH, "CUB3D", 0);
+        data.img= mlx_new_image(data.mlx, IW, IH);
+        mlx_loop(data.mlx);
     }
     init_struct_pointers(&m);
     quit_program (SUCCESS, &m);

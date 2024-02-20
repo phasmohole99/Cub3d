@@ -39,8 +39,8 @@ typedef struct s_map
 
 typedef struct data_s
 {
-    struct mlx mlx;
-    mlx_image_t img;
+    struct mlx *mlx;
+    mlx_image_t *img;
     t_map *map;
 }t_data;
 
@@ -66,5 +66,6 @@ void        check_paths(t_map *m);
 void        check_rgbs(t_map *m);
 int         check_ranges(char *str);
 int         count_commas(char *str);
+void        convert_rgb_to_hex(t_map *m, char *str);
 
 #endif

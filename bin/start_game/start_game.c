@@ -42,20 +42,17 @@
 void    start_game_window(t_map *m)
 {
     int w; // width
+	t_data *data = NULL;
+	(void)m;
+	data = malloc(sizeof(t_data*));
 
     w = ft_strlen(m->map[0]);
     m->height = ft_2dlen(m->map);
-	m->mlx_ptr = mlx_init(w * IW, m->height * IH, "CUB3D", false);
-    //mlx_new_image(m->mlx_ptr, w, m->height * IH);
-	if (!m->mlx_ptr || !m->mlx_win)
-		quit_program (WINDOW_ERROR, m);
-	// if (!init_element(m))
-	// {
-	//      perror("Error\n:Invalid XPM Files\n");
-	//      quit_game(m, 1);
-	// }
-	// mlx_key_hook(m->mlx_win, key_press, m);
-	// mlx_hook(m->mlx_win, 17, 0, quit_game, m);
-	
-	mlx_loop(m->mlx_ptr);
+	data->mlx = mlx_init(IW * w, IH * m->height, "CUB3D", 0);
+	data->img= mlx_new_image(data->mlx, IW, IH);
+	// if (!m->mlx_ptr)
+	// 	quit_program (WINDOW_ERROR, m);
+	//mlx_image_to_window(data->mlx, data->img, 1, 1);
+	//draw_elements (m);
+	mlx_loop(data->mlx);
 }
