@@ -5,12 +5,17 @@
 # define MISSING_MAP 405
 # define INVALID_MAP 400
 # define WALL 49
+# define IW 75
+# define IH 75
+# define WINDOW_ERROR 401
+# define SUCCESS 1
 
 # include "../src/get_next_line/get_next_line.h"
 # include "../src/libft/libft.h"
 # include <string.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include "MLX42/MLX42.h"
 
 typedef struct s_map
 {
@@ -25,7 +30,16 @@ typedef struct s_map
     char    *ea;
     char    *f;
     char    *c;
+    void    *mlx_ptr;
+    void    *mlx_win;
 } t_map;
+
+typedef struct data_s
+{
+    struct mlx mlx;
+    mlx_image_t img;
+    t_map *map;
+}t_data;
 
 void        quit_program(int errid, t_map *m);
 char		**realloc_2d(char **tab, char *str);
@@ -42,5 +56,8 @@ void        check_map (t_map *m);
 void        check_lines_width(t_map *m);
 size_t	    ft_2dlen(char **tab);
 int         is_wall(char c);
+void        start_game_window(t_map *m);
+void        free_2darr(char **tab);
+void        init_struct_pointers(t_map *m);
 
 #endif

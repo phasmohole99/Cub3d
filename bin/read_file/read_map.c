@@ -52,7 +52,6 @@ void    read_file(int fd, t_map *m)
     i = 0;
     tmp = NULL;
     lines = NULL;
-    (void)m;
     while (1)
     {
         tmp = get_next_line(fd);
@@ -61,5 +60,6 @@ void    read_file(int fd, t_map *m)
             break ;
         i++;
     }
+    init_struct_pointers(m);
     filter_lines(lines, m);
 }

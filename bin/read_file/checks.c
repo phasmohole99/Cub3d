@@ -20,10 +20,25 @@ char    *remove_spaces_id(char *str, t_map *m)
 
 void    clean_directions(t_map *m)
 {
-    m->no = remove_spaces_id(m->no, m);
-    m->so = remove_spaces_id(m->so, m);
-    m->we = remove_spaces_id(m->we, m);
-    m->ea = remove_spaces_id(m->ea, m);
-    m->f = remove_spaces_id(m->f, m);
-    m->c = remove_spaces_id(m->c, m);
+    char    *tmp;
+
+    tmp = NULL;
+    tmp = remove_spaces_id(m->no, m);
+    m->no = ft_strdup(tmp);
+    free (tmp);
+    tmp = remove_spaces_id(m->so, m);
+    m->so = ft_strdup(tmp);
+    free (tmp);
+    tmp = remove_spaces_id(m->we, m);
+    m->we = ft_strdup(tmp);
+    free (tmp);
+    tmp = remove_spaces_id(m->ea, m);
+    m->ea = ft_strdup(tmp);
+    free (tmp);
+    tmp = remove_spaces_id(m->f, m);
+    m->f = ft_strdup(tmp);
+    free (tmp);
+    tmp = remove_spaces_id(m->c, m);
+    m->c = ft_strdup(tmp);
+    free (tmp);
 }

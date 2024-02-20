@@ -6,7 +6,8 @@ FILE	= bin/main/main \
 		  bin/read_file/checks \
 		  bin/read_file/tools_2 \
 		  bin/read_file/read_map_lines \
-		  bin/read_file/map_checker
+		  bin/read_file/map_checker \
+		  bin/start_game/start_game
 OBJ		= $(FILE:=.o)
 SRC		= src/libft/libft.a src/get_next_line/gnl.a
 LIBFT 	= src/libft
@@ -23,7 +24,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	$(AR) bin.a $(OBJ)
-	$(CC) $(FLAGS) bin.a $(SRC) -o $(NAME)
+	$(CC) $(FLAGS) bin.a $(SRC) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 $(SRC):
 	$(MK) $(LIBFT)

@@ -42,25 +42,6 @@ char	*ft_strdup_no_newlines(const char *s1)
 	return (str);
 }
 
-void	free_2darr(char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (tab == NULL)
-		return ;
-	while (tab[i])
-	{
-		if (tab[i])
-			free (tab[i]);
-		tab[i] = NULL;
-		i++;
-	}
-	// if (tab)
-	// 	free (tab);
-	tab = NULL;
-}
-
 size_t	ft_2dlen(char **tab)
 {
 	size_t	len;

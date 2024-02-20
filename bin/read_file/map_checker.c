@@ -8,10 +8,7 @@ void    check_lines_width(t_map *m)
     while (m->map[i])
     {
         if (ft_strlen(m->map[i]) != m->width)
-        {
-            printf ("--> %zu on %d\n", ft_strlen(m->map[i]), i);
             quit_program (INVALID_MAP, m);
-        }
         i++;
     }
 }
@@ -64,5 +61,5 @@ void    check_map (t_map *m)
     check_lines_width(m);
     check_walls(m);
     check_elements(m);
-    printf("IT's a valid map\n");
+    //printf("IT's a valid map\n");
 }

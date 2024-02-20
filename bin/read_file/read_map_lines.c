@@ -44,7 +44,7 @@ void    read_map_lines(char **lines, t_map *m)
     if (s == -1)
         quit_program (MISSING_MAP, m);
     set_lines_to_map (s, lines, m);
-    /*    here we finished from lines variable do not forget to free it */
+    //free_2darr (lines);
     check_map (m);
     // int i = 0;
     // while (m->map[i])
