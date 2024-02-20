@@ -9,6 +9,8 @@
 # define IH 75
 # define WINDOW_ERROR 401
 # define SUCCESS 1
+# define INVALID_PATH 409
+# define INVALID_RGB 255
 
 # include "../src/get_next_line/get_next_line.h"
 # include "../src/libft/libft.h"
@@ -28,6 +30,7 @@ typedef struct s_map
     char    *so;
     char    *we;
     char    *ea;
+    char    *f_hex;
     char    *f;
     char    *c;
     void    *mlx_ptr;
@@ -59,5 +62,9 @@ int         is_wall(char c);
 void        start_game_window(t_map *m);
 void        free_2darr(char **tab);
 void        init_struct_pointers(t_map *m);
+void        check_paths(t_map *m);
+void        check_rgbs(t_map *m);
+int         check_ranges(char *str);
+int         count_commas(char *str);
 
 #endif

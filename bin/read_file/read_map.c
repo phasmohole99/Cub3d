@@ -62,4 +62,7 @@ void    read_file(int fd, t_map *m)
     }
     init_struct_pointers(m);
     filter_lines(lines, m);
+    check_paths (m);
+    check_rgbs (m);
+    convert_rgb_to_hex(m, m->f);
 }

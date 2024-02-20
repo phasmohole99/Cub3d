@@ -1,5 +1,31 @@
 #include "../../include/parsing.h"
 
+void    check_rgbs(t_map *m)
+{
+    if (count_commas(m->f) == -1 || check_ranges(m->f) == -1)
+        quit_program (INVALID_RGB, m);
+    if (count_commas(m->c) == -1 || check_ranges(m->c) == -1)
+        quit_program (INVALID_RGB, m);
+}
+
+void    check_paths(t_map *m)
+{
+    int fd;
+
+    fd = open (m->no, 2);
+    if (fd == -1)
+        quit_program (INVALID_PATH, m);
+    fd = open (m->so, 2);
+    if (fd == -1)
+        quit_program (INVALID_PATH, m);
+    fd = open (m->we, 2);
+    if (fd == -1)
+        quit_program (INVALID_PATH, m);
+    fd = open (m->ea, 2);
+    if (fd == -1)
+        quit_program (INVALID_PATH, m);
+}
+
 char    *remove_spaces_id(char *str, t_map *m)
 {
     int     i;

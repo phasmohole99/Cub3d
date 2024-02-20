@@ -23,7 +23,8 @@ int main(int ac, char **av)
     {
         check_cub_file(av[1]);
         read_file (open(av[1], 2), &m);
-        start_game_window (&m);
+        //start_game_window (&m);
     }
+    init_struct_pointers(&m);
     quit_program (SUCCESS, &m);
 }

@@ -1,6 +1,5 @@
 #include "../../include/parsing.h"
 
-
 int     is_wall(char c)
 {
     return (c == WALL);

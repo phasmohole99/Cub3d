@@ -7,7 +7,7 @@ void    check_lines_width(t_map *m)
     i = 0;
     while (m->map[i])
     {
-        if (ft_strlen(m->map[i]) != m->width)
+        if ((int)ft_strlen(m->map[i]) != m->width)
             quit_program (INVALID_MAP, m);
         i++;
     }

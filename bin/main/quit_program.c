@@ -55,12 +55,11 @@ void    quit_program(int errid, t_map *m)
         perror ("Error\n:Invalid Map please fix .cub file\n");
     if (errid == WINDOW_ERROR)
         perror ("Error\n:Unable to intialze window\n");
+    if (errid == INVALID_PATH)
+        perror ("Error\n:Invalid PATH in elements please fix .cub file\n");
+    if (errid == INVALID_RGB)
+        perror ("Error\n:Invalid RGB in elements please fix .cub file\n");
     if (errid == SUCCESS)
-    {
-            printf("PP\n");
-            pause();
-            exit (EXIT_SUCCESS);
-    }
-    pause ();
+        {pause();exit (EXIT_SUCCESS);}
     exit (EXIT_FAILURE);
 }

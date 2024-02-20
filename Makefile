@@ -7,14 +7,15 @@ FILE	= bin/main/main \
 		  bin/read_file/tools_2 \
 		  bin/read_file/read_map_lines \
 		  bin/read_file/map_checker \
-		  bin/start_game/start_game
+		  bin/start_game/start_game \
+		  bin/read_file/tools_3
 OBJ		= $(FILE:=.o)
 SRC		= src/libft/libft.a src/get_next_line/gnl.a
 LIBFT 	= src/libft
 GETNL	= src/get_next_line
 AR		= ar cr
 CC		= cc
-FLAGS	=
+FLAGS	= -W -W -W
 RM		= rm -rf
 MK 		= make -C
 MKCL	= make clean -C
