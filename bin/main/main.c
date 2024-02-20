@@ -24,10 +24,7 @@ int main(int ac, char **av)
     {
         check_cub_file(av[1]);
         read_file (open(av[1], 2), &m);
-        //start_game_window (&m);
-        data.mlx = mlx_init(IW, IH, "CUB3D", 0);
-        data.img= mlx_new_image(data.mlx, IW, IH);
-        mlx_loop(data.mlx);
+        start_game_window (&m, &data);
     }
     init_struct_pointers(&m);
     quit_program (SUCCESS, &m);

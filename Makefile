@@ -20,12 +20,15 @@ RM		= rm -rf
 MK 		= make -C
 MKCL	= make clean -C
 MKFCL	= make fclean -C
+LIB_DIR = ${HOME}/Desktop/Cub3d/include/libmlx42.a
+GLFW_DIR = ${HOME}/Desktop/Cub3d/include/libglfw3.a
+
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	$(AR) bin.a $(OBJ)
-	$(CC) $(FLAGS) bin.a $(SRC) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
+	$(CC) $(FLAGS) bin.a $(SRC) ${GLFW_DIR} ${LIB_DIR} -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
 
 $(SRC):
 	$(MK) $(LIBFT)

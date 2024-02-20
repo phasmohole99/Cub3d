@@ -39,17 +39,15 @@
 // }
 
 
-void    start_game_window(t_map *m)
+void    start_game_window(t_map *m, t_data *data)
 {
     int w; // width
-	t_data *data = NULL;
 	(void)m;
-	data = malloc(sizeof(t_data*));
 
     w = ft_strlen(m->map[0]);
     m->height = ft_2dlen(m->map);
 	data->mlx = mlx_init(IW * w, IH * m->height, "CUB3D", 0);
-	data->img= mlx_new_image(data->mlx, IW, IH);
+	data->img = mlx_new_image(data->mlx, IW, IH);
 	// if (!m->mlx_ptr)
 	// 	quit_program (WINDOW_ERROR, m);
 	//mlx_image_to_window(data->mlx, data->img, 1, 1);

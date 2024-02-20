@@ -59,7 +59,7 @@ void        check_map (t_map *m);
 void        check_lines_width(t_map *m);
 size_t	    ft_2dlen(char **tab);
 int         is_wall(char c);
-void        start_game_window(t_map *m);
+void        start_game_window(t_map *m, t_data *data);
 void        free_2darr(char **tab);
 void        init_struct_pointers(t_map *m);
 void        check_paths(t_map *m);
