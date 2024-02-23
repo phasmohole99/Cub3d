@@ -2,5 +2,5 @@
 
 void    draw_elements(t_map *m)
 {
-
+    return ;
 }

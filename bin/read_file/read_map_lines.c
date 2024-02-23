@@ -46,10 +46,4 @@ void    read_map_lines(char **lines, t_map *m)
     set_lines_to_map (s, lines, m);
     //free_2darr (lines);
     check_map (m);
-    // int i = 0;
-    // while (m->map[i])
-    // {
-    //     printf("%s\n", m->map[i]);
-    //     i++;
-    // }
 }

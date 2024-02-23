@@ -35,12 +35,6 @@ void    filter_lines(char **lines, t_map *m)
     set_directions (lines, m);
     clean_directions (m);
     read_map_lines (lines, m);
-    // printf("%s\n", m->no);
-    // printf("%s\n", m->so);
-    // printf("%s\n", m->we);
-    // printf("%s\n", m->ea);
-    // printf("%s\n", m->f);
-    // printf("%s\n", m->c);
 }
 
 void    read_file(int fd, t_map *m)

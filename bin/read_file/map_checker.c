@@ -55,11 +55,35 @@ void    check_elements(t_map *m)
     }
 }
 
+void    check_duplicate_elements(t_map *m)
+{
+    int i;
+    int j;
+    int count;
+
+    i = 0;
+    count = 0;
+    while (m->map[i])
+    {
+        j = 0;
+        while (m->map[i][j])
+        {
+            if (m->map[i][j] == 'N' || m->map[i][j] == 'S'
+                || m->map[i][j] == 'W' || m->map[i][j] == 'E')
+                    count++;
+            j++;
+        }
+        i++;
+    }
+    if (!(count == 1))
+        quit_program (INVALID_MAP, m);
+}
+
 void    check_map (t_map *m)
 {
     m->width = ft_strlen(m->map[0]);
     check_lines_width(m);
     check_walls(m);
     check_elements(m);
-    //printf("IT's a valid map\n");
+    check_duplicate_elements(m);
 }

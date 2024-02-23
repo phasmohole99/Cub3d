@@ -22,6 +22,7 @@ void    convert_rgb_to_hex(t_map *m, char *str)
         tmp = ft_substr(str, start, i - start);
         num = ft_atoi(tmp);
         free (tmp);
+        //num = ft_convert_to_hex(num);
         tmp = ft_itoa(num);
         printf("#%s\n", tmp);
         m->f_hex = ft_strjoin(m->f_hex, tmp);
@@ -44,7 +45,7 @@ int     check_ranges(char *str)
     while (j < 3)
     {
         start = i;
-        while (str[i] != ',')
+        while (str[i] != ',' && str[i])
             i++;
         tmp = ft_substr(str, start, i - start);
         num = ft_atoi(tmp);

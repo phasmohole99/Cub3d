@@ -15,7 +15,7 @@ LIBFT 	= src/libft
 GETNL	= src/get_next_line
 AR		= ar cr
 CC		= cc
-FLAGS	= -W -W -W
+FLAGS	= -W -W -W -fsanitize=address -g
 RM		= rm -rf
 MK 		= make -C
 MKCL	= make clean -C

@@ -11,6 +11,7 @@
 # define SUCCESS 1
 # define INVALID_PATH 409
 # define INVALID_RGB 255
+# define TILE_SIZE 75
 
 # include "../src/get_next_line/get_next_line.h"
 # include "../src/libft/libft.h"
@@ -40,6 +41,10 @@ typedef struct s_map
 typedef struct data_s
 {
     struct mlx *mlx;
+    mlx_texture_t			*no;
+	mlx_texture_t			*so;
+	mlx_texture_t			*ea;
+	mlx_texture_t			*we;
     mlx_image_t *img;
     t_map *map;
 }t_data;
