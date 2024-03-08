@@ -9,11 +9,9 @@ void updatePlayerPosition(t_data *data,int deltaX, int deltaY) {
 
 void draw_map(t_data *data) {
     int i = 0;
-    // printf("WW---_>----------------QQ");
-    // exit(1);
-    while (i < data->map->height) {
+    while (i < data->height) {
         int j = 0;
-        while (j < data->map->width) {
+        while (j < data->width) {
             int tileX = j * TILE_SIZE;
             int tileY = i * TILE_SIZE;
             int row = 0;
@@ -24,18 +22,24 @@ void draw_map(t_data *data) {
                     int pixelY = tileY + row;
 
                     int color;
-                    if (data->map->map[i][j] == 1)
-                        color = 0x00FF00FF;
+                    // printf("%c\n",data->map_dub[i][j]);
+                    if (data->map_dub[i][j] == '1')
+                        color = 0x0000FF;
                     else
-                        color = 0x0F00FFFF;
+                        color = 0x00FF00FF;
 
-                    if (pixelX == tileX || pixelX == tileX + TILE_SIZE - 1 ||
-                        pixelY == tileY || pixelY == tileY + TILE_SIZE - 1) {
-                        if (data->map->map[i][j] == 1 || data->map->map[i][j] == 0)
-                            color = 0x000000FF;
-                    }
+                    // if (pixelX == tileX || pixelX == tileX + TILE_SIZE - 1 ||
+                    //     pixelY == tileY || pixelY == tileY + TILE_SIZE - 1) {
+                    //     if (data->map_dub[i][j] == 1 || data->map_dub[i][j] == 0)
+                    //         color = 0x000000FF;
+                    // }
+
                     if(pixelY >= 0 && pixelY < IH && pixelX >= 0 && pixelX <  IW)
+                    {
+                        // printf("here [%d]\n",i);
                         mlx_put_pixel(data->img, pixelX, pixelY, color);
+                    }
+
                     col++;
                 }
                 row++;
@@ -88,18 +92,16 @@ void hook(void *param)
 {
     t_data *mlx = (t_data *)param;
     mlx_key_data_t data;
-    int Color = 0x808080FF; 
+    int Color = 0x808080FF;
+
     mlx_delete_image(mlx->mlx,mlx->img);
     mlx->img = mlx_new_image(mlx->mlx,IW,IH);
-
     if(mlx_is_key_down(mlx->mlx,MLX_KEY_A))
         mlx->angle -= 0.1;
     else if (mlx_is_key_down(mlx->mlx,MLX_KEY_D))
     {
-        // printf("here\n");
         mlx->angle += 0.1;
     }
-
     if (mlx_is_key_down(mlx->mlx, MLX_KEY_ESCAPE))
         exit(1);
     else if (mlx_is_key_down(mlx->mlx, MLX_KEY_UP))
@@ -121,15 +123,34 @@ void hook(void *param)
 void    start_game_window(t_map *m, t_data *data)
 {
     int w; // IW
-	(void)m;
-
+    data->x = IW / 2;
+    data->y = IH / 2;
     w = ft_strlen(m->map[0]);
-    m->width = w;
-    m->height = ft_2dlen(m->map);
-	data->mlx = mlx_init(IW * w, IH * m->height, "CUB3D", 0);
-    printf("--_---> %d\n", m->height);
-        printf("WW---_>----------------QQ");
-    exit(1);
+        data->map_dub = (char**) malloc(sizeof(char *) * (data->height + 1));
+    int i = 0;
+    int j = 0; 
+    while (m->map[i])
+    {
+        j = 0;
+        data->map_dub[i] = malloc(sizeof(char) * w + 1);
+        while (m->map[i][j])
+        {
+            data->map_dub[i][j] = m->map[i][j];
+            j++;
+        }
+        data->map_dub[i][j] = 0;
+        i++;
+    }
+    data->map_dub[i] = 0;
+    data->width = w;
+    data->height = ft_2dlen(m->map);
+    // i = 0;
+    // while (data->map_dub[i])
+    // {
+    //     printf("%s\n", data->map_dub[i]);
+    //     i++;
+    // }
+	data->mlx = mlx_init(IW , IH, "CUB3D", 0);
 	// mlx_texture_t *no_texture = mlx_load_png(m->no);
 	// data->img = mlx_texture_to_image(data->mlx, no_texture);
 	data->img = mlx_new_image(data->mlx, IW, IH);
@@ -138,6 +159,6 @@ void    start_game_window(t_map *m, t_data *data)
 	// //mlx_image_to_window(data->mlx, image, 1, 1);
 	// draw_elements (m);
 	mlx_loop_hook(data->mlx, &hook, data);
-	// mlx_image_to_window(data->mlx, data->img, 0, 0);
+	mlx_image_to_window(data->mlx, data->img, 0, 0);
 	mlx_loop(data->mlx);
 }

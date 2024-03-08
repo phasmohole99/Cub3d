@@ -15,13 +15,13 @@ LIBFT 	= src/libft
 GETNL	= src/get_next_line
 AR		= ar cr
 CC		= cc
-FLAGS	= -W -W -W -fsanitize=address -g
+FLAGS	= -W -W -W
 RM		= rm -rf
 MK 		= make -C
 MKCL	= make clean -C
 MKFCL	= make fclean -C
-LIB_DIR = ${HOME}/Desktop/Cub3d/include/libmlx42.a
-GLFW_DIR = ${HOME}/Desktop/Cub3d/include/libglfw3.a
+LIB_DIR = /Users/mrital-/Desktop/push/Cub3d/Cub/include/libmlx42.a
+GLFW_DIR = /Users/mrital-/Desktop/push/Cub3d/Cub/include/libglfw3.a
 
 
 all: $(NAME)
@@ -29,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(SRC)
 	$(AR) bin.a $(OBJ)
 	$(CC) $(FLAGS) bin.a $(SRC) ${GLFW_DIR} ${LIB_DIR} -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
-
+	$(RM) bin.a
 $(SRC):
 	$(MK) $(LIBFT)
 	$(MK) $(GETNL)

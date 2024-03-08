@@ -9,10 +9,9 @@
 # define SUCCESS 1
 # define INVALID_PATH 409
 # define INVALID_RGB 255
-
 #define TILE_SIZE 48
-#define IW 75
-#define IH 75
+#define IW 850
+#define IH 700
 #define PI 3.14159265
 #define SPEED 1.5
 
@@ -29,8 +28,7 @@
 typedef struct s_map
 {
     char    **map;
-    int     width;
-    int     height;
+
     int     x;
     int     y;
     char    *no;
@@ -42,6 +40,8 @@ typedef struct s_map
     char    *c;
     void    *mlx_ptr;
     void    *mlx_win;
+    int     width;
+    int     height;
 } t_map;
 
 typedef struct data_s
@@ -52,9 +52,12 @@ typedef struct data_s
 	mlx_texture_t			*ea;
 	mlx_texture_t			*we;
     mlx_image_t *img;
+    char **map_dub;
     float   angle;
     int x;
     int y;
+    int     width;
+    int     height;
     t_map *map;
 }t_data;
 
