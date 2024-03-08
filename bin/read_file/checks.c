@@ -1,5 +1,11 @@
 #include "../../include/parsing.h"
 
+void    check_map(t_map *m)
+{
+    (void)m;
+    return ;
+}
+
 void    check_rgbs(t_map *m)
 {
     if (count_commas(m->f) == -1 || check_ranges(m->f) == -1)

@@ -5,19 +5,25 @@
 # define MISSING_MAP 405
 # define INVALID_MAP 400
 # define WALL 49
-# define IW 75
-# define IH 75
 # define WINDOW_ERROR 401
 # define SUCCESS 1
 # define INVALID_PATH 409
 # define INVALID_RGB 255
-# define TILE_SIZE 75
+
+#define TILE_SIZE 48
+#define IW 75
+#define IH 75
+#define PI 3.14159265
+#define SPEED 1.5
+
 
 # include "../src/get_next_line/get_next_line.h"
 # include "../src/libft/libft.h"
 # include <string.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <math.h>
+
 # include "MLX42/MLX42.h"
 
 typedef struct s_map
@@ -46,6 +52,9 @@ typedef struct data_s
 	mlx_texture_t			*ea;
 	mlx_texture_t			*we;
     mlx_image_t *img;
+    float   angle;
+    int x;
+    int y;
     t_map *map;
 }t_data;
 

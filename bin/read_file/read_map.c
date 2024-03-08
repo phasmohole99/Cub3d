@@ -58,5 +58,6 @@ void    read_file(int fd, t_map *m)
     filter_lines(lines, m);
     check_paths (m);
     check_rgbs (m);
+    check_map (m);
     //convert_rgb_to_hex(m, m->f);
 }
