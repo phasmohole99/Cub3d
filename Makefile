@@ -8,7 +8,9 @@ FILE	= bin/main/main \
 		  bin/read_file/read_map_lines \
 		  bin/read_file/map_checker \
 		  bin/start_game/start_game \
-		  bin/read_file/tools_3
+		  bin/read_file/tools_3 \
+		  bin/start_game/tools \
+		  bin/start_game/draw
 OBJ		= $(FILE:=.o)
 SRC		= src/libft/libft.a src/get_next_line/gnl.a
 LIBFT 	= src/libft
@@ -20,8 +22,8 @@ RM		= rm -rf
 MK 		= make -C
 MKCL	= make clean -C
 MKFCL	= make fclean -C
-LIB_DIR = /Users/mrital-/Desktop/push/Cub3d/Cub/include/libmlx42.a
-GLFW_DIR = /Users/mrital-/Desktop/push/Cub3d/Cub/include/libglfw3.a
+LIB_DIR = ${HOME}/Desktop/Cub3d/include/libmlx42.a
+GLFW_DIR = ${HOME}/Desktop/Cub3d/include/libglfw3.a
 
 
 all: $(NAME)

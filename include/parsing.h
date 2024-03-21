@@ -84,5 +84,13 @@ void        check_rgbs(t_map *m);
 int         check_ranges(char *str);
 int         count_commas(char *str);
 void        convert_rgb_to_hex(t_map *m, char *str);
+void        duplicate_map(t_map *m, t_data *data, int w);
+void        hook(void *param);
+void        draw_line(t_data *data, int playerX, int playerY, int length, double angle, int color);
+void        draw_player(t_data *data, int radius, int color);
+void        draw_map(t_data *data);
+void        updatePlayerPosition(t_data *data,int deltaX, int deltaY);
+void        draw_game(t_data *data);
+
 
 #endif
