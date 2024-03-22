@@ -11,7 +11,7 @@
 # define INVALID_RGB 255
 #define TILE_SIZE 48
 #define IW 75
-#define IH  75
+#define IH 75
 #define PI 3.14159265
 #define SPEED 1.5
 

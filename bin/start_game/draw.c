@@ -31,10 +31,10 @@ void	draw_sky_ground(t_data *data)
 
 	i = 0;
 	color = 0;
-	while (color < (data->width * IW) / 2)
+	while (color < (data->height * IH) / 2)
 	{
 		i = 0;
-		while (i <= IW)
+		while (i <= data->width * IW)
 		{
 			mlx_put_pixel(data->img, i++, color, ft_pxl(data->map->s_r, data->map->s_g, data->map->s_b,
 					255));
@@ -44,7 +44,7 @@ void	draw_sky_ground(t_data *data)
 	while (color < (data->height * IH))
 	{
 		i = 0;
-		while (i <= IH)
+		while (i <= data->width * IW)
 		{
 			mlx_put_pixel(data->img, i++, color, ft_pxl(data->map->g_r, data->map->g_g,
 					data->map->g_b, 255));
