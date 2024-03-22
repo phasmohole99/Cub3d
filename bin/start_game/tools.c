@@ -94,7 +94,6 @@ void hook(void *param)
     mlx_key_data_t data;
     int Color = 0x808080FF;
 
-    draw_game(mlx);
     mlx_delete_image(mlx->mlx,mlx->img);
     mlx->img = mlx_new_image(mlx->mlx,IW,IH);
     if(mlx_is_key_down(mlx->mlx,MLX_KEY_A))
@@ -113,10 +112,11 @@ void hook(void *param)
         updatePlayerPosition(mlx, 1,0); 
     else if (mlx_is_key_down(mlx->mlx, MLX_KEY_LEFT))
         updatePlayerPosition(mlx, -1,0); 
-    draw_map(mlx);
-    draw_player(mlx, 8, Color);
-    draw_line(mlx,mlx->x,mlx->y,50,mlx->angle,Color);
+    // draw_map(mlx);
+    // draw_player(mlx, 8, Color);
+    // draw_line(mlx,mlx->x,mlx->y,50,mlx->angle,Color);
     mlx_image_to_window(mlx->mlx,mlx->img,0,0);
+    draw_game(mlx);
 }
 
 

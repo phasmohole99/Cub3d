@@ -10,8 +10,8 @@
 # define INVALID_PATH 409
 # define INVALID_RGB 255
 #define TILE_SIZE 48
-#define IW 850
-#define IH 700
+#define IW 75
+#define IH  75
 #define PI 3.14159265
 #define SPEED 1.5
 
@@ -42,6 +42,12 @@ typedef struct s_map
     void    *mlx_win;
     int     width;
     int     height;
+    int     s_r;
+    int     s_g;
+    int     s_b;
+    int     g_r;
+    int     g_g;
+    int     g_b;
 } t_map;
 
 typedef struct data_s
@@ -91,6 +97,7 @@ void        draw_player(t_data *data, int radius, int color);
 void        draw_map(t_data *data);
 void        updatePlayerPosition(t_data *data,int deltaX, int deltaY);
 void        draw_game(t_data *data);
+void        ft_draw_wall(t_data *data, float ray_nb);
 
 
 #endif

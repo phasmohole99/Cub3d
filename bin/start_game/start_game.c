@@ -32,7 +32,7 @@ void    start_game_window(t_map *m, t_data *data)
     data->map_dub = m->map;
     //duplicate_map(m, data, data->width);
     init_textures(data);
-    data->mlx = mlx_init(IW , IH, "CUB3D", 0);
+    data->mlx = mlx_init(IH * data->height, IW * data->width, "CUB3D", 0);
 	data->img = mlx_new_image(data->mlx, IW, IH); 
     mlx_loop_hook(data->mlx, &hook, data);
 	// mlx_image_to_window(data->mlx, data->img, 0, 0);
