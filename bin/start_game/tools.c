@@ -95,7 +95,7 @@ void hook(void *param)
     int Color = 0x808080FF;
 
     mlx_delete_image(mlx->mlx,mlx->img);
-    mlx->img = mlx_new_image(mlx->mlx,IW,IH);
+    mlx->img = mlx_new_image(mlx->mlx,IW * mlx->width,mlx->height * IH);
     if(mlx_is_key_down(mlx->mlx,MLX_KEY_A))
         mlx->angle -= 0.1;
     else if (mlx_is_key_down(mlx->mlx,MLX_KEY_D))
